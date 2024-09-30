@@ -19745,7 +19745,7 @@ const deleteComments = async () => {
 };
 const run = async () => {
     console.log("Running");
-    (0, helpers_1.assert)(github_1.context.eventName === 'pull_request', 'This action only makes sense for PRs');
+    (0, helpers_1.assert)((github_1.context.eventName === 'pull_request' || github_1.context.eventName === 'pull_request_target'), 'This action only makes sense for PRs');
     console.log("Loading coverage files");
     const [baseline, current] = await Promise.all([
         readCoverage(baselinePath),
